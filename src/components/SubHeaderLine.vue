@@ -12,11 +12,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-10 col-md-2 ml-md-auto language">
-                    <i class="language__icon fas fa-language mr-1"></i>
-                    <a class="language__text mr-1" href="#">Укр</a>
-                    <span class="mr-1">/</span><a class="language__text" href="#">En</a></div>
-                <div class="col-2 col-md-1">
+                <div class="col-2 col-md-1 ml-auto">
                     <a class="basket" href="#">
                         <i class="basket__icon fas fa-shopping-basket"></i>
                         <span class="basket__count">12</span></a></div>

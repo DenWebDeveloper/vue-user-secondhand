@@ -5,11 +5,15 @@
 </template>
 <script>
 import Layout from '@/views/Layout'
+import * as types from './store/actions.types'
 
 export default {
-  name: 'home',
+  name: 'App',
   components: {
     Layout,
   },
+  beforeMount() { // Інформація використовується в header тому завантажуємо в корні проекта
+    this.$store.dispatch(types.GET_BASE_INFO)
+  }
 }
 </script>
