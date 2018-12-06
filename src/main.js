@@ -10,8 +10,10 @@ import api from './api'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style/style.scss'
 
+import locale from 'element-ui/lib/locale/lang/ua'
+
 Vue.use(VueCarousel)
-Vue.use(ElementUI)
+Vue.use(ElementUI, {locale})
 
 
 Vue.config.productionTip = false

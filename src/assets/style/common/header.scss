@@ -1,0 +1,26 @@
+header {
+  background-color: #fff;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  font-family: "Gamja Flower", "Arial", sans-serif;
+  color: #030706;
+}
+
+
+.nav-link {
+  text-transform: uppercase;
+  color: $grey;
+
+  &:hover {
+    color: #121212;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+}
+
+.section__title {
+  background-color: #fff;
+  margin: 10px 0;
+}

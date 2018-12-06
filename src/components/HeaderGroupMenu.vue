@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="display: flex; flex-direction: column;">
         <header-group-menu-item
                 v-for="item in groupsTopLevel"
                 :groupsTopLevel="groupsTopLevel" :group="item" :key="item.id"/>

@@ -13,15 +13,6 @@
                 <h5 class="card-title">{{item.name}}</h5>
                 <hr>
                 <p>{{item.shortDescription}}</p>
-                <hr>
-                <div v-if="type === 'products'" class="d-flex">
-                    <el-tooltip class="ml-auto" effect="dark" content="Додати в корзину" placement="left-start">
-                        <el-button type="warning" icon="el-icon-sold-out" circle></el-button>
-                    </el-tooltip>
-                    <el-tooltip class="ml-1" effect="dark" content="Переглянути товар детальніше" placement="top">
-                        <el-button style="transform: rotate(180deg)" type="primary" icon="el-icon-back" circle></el-button>
-                    </el-tooltip>
-                </div>
             </div>
         </router-link>
     </div>
@@ -44,11 +35,16 @@
 </script>
 
 <style lang="scss" scoped>
+    .card-deck {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .card {
-        width: 300px;
         display: block;
-        max-width: 300px;
         margin-bottom: 10px;
+        max-width: 331px;
+        width: 100%;
         color: inherit;
         text-decoration: none;
 
@@ -56,6 +52,21 @@
             box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.28);
         }
     }
+    @media(min-width: 577px) {
+        .card-deck {
+            justify-content: space-between;
+        }
+        .card {
+            flex-basis: 44%;
+        }
+    }
+
+    @media(min-width: 995px) {
+        .card {
+            flex-basis: 30%;
+        }
+    }
+
 
     .slider .card {
         width: auto;

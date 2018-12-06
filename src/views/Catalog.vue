@@ -8,31 +8,8 @@
                 <div class="col-md-12">
                     <card-deck :data="groups"/>
                 </div>
-                <div class="col-md-12 slider" style="margin-top: 50px">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="popular-products__header col-md-12 f-flex">
-                                <h2 class="py-2 m-0">
-                                    <i class="fas fa-fire mr-3"></i>
-                                    <span>Рекомендовані товари</span>
-                                </h2>
-                            </div>
-                            <carousel :perPageCustom="[[480, 2], [768, 5],[888, 5]]" :scrollPerPage="true">
-                                <slide v-for="item in groups" :key="item.id">
-                                    <div style="padding: 10px">
-                                        <router-link to="/" class="card">
-                                            <img class="card-img-top"
-                                                 :src="`http://acgproduct-001-site1.gtempurl.com/api/groups/${item.id}/images/${item.imageId}/content`"
-                                                 alt="Card image catalog">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{item.name}}</h5>
-                                            </div>
-                                        </router-link>
-                                    </div>
-                                </slide>
-                            </carousel>
-                        </div>
-                    </div>
+                <div class="col-md-12" style="margin-top: 50px">
+                    <popular-products/>
                 </div>
             </div>
         </div>
@@ -41,11 +18,13 @@
 
 <script>
 import CardDeck from '@/components/CardDeck'
+import PopularProducts from '@/components/PopularProducts'
 
 export default {
   name: 'Catalog',
   components: {
     CardDeck,
+    PopularProducts
   },
   data() {
     return {

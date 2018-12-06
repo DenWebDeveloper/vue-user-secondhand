@@ -2,11 +2,11 @@ import * as types from '../../actions.types'
 import api from '../../../api/index'
 
 export default {
-  [types.GET_BASE_INFO]: ({ commit }) => {
+  [types.GET_SEARCH_RESULTS]: ({ commit },search) => {
     return new Promise((resolve, reject) => {
-      api.get('/base-information')
+      api.get(`/products/search?value=${search}`)
         .then(res => {
-          commit(types.SET_BASE_INFO, { info: res.data })
+          commit(types.SET_SEARCH_RESULTS, { results: res.data })
           resolve()
         })
         .catch(err => {
