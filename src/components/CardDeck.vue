@@ -3,12 +3,14 @@
         <router-link v-for="item in data"
                      :to="{name:type === 'products'?'product':'group',params:{id:item.id}}"
                      class="card" :key="item.id">
-            <img v-if="type === 'products'" class="card-img-top"
-            :src="`http://acgproduct-001-site1.gtempurl.com/api/products/${item.id}/images/${item.imageId}/content`"
-            alt="Card image catalog">
-            <img v-else class="card-img-top"
-                 :src="`http://acgproduct-001-site1.gtempurl.com/api/groups/${item.id}/images/${item.imageId}/content`"
-                 alt="Card image catalog">
+            <div class="thumbnail">
+                <img v-if="type === 'products'" class="card-img-top thumbnail-img"
+                     :src="`http://acgproduct-001-site1.gtempurl.com/api/products/${item.id}/images/${item.imageId}/content`"
+                     alt="Card image catalog">
+                <img v-else class="card-img-top thumbnail-img"
+                     :src="`http://acgproduct-001-site1.gtempurl.com/api/groups/${item.id}/images/${item.imageId}/content`"
+                     alt="Card image catalog">
+            </div>
             <div class="card-body">
                 <h5 class="card-title">{{item.name}}</h5>
                 <hr>
@@ -39,11 +41,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        margin: 0;
+
     }
     .card {
         display: block;
         margin-bottom: 10px;
         max-width: 331px;
+        margin-left: 0;
+        margin-right: 0;
         width: 100%;
         color: inherit;
         text-decoration: none;
@@ -61,9 +67,19 @@
         }
     }
 
-    @media(min-width: 995px) {
+    @media(min-width: 992px) {
+        .card-deck {
+            justify-content: flex-start;
+        }
+
         .card {
-            flex-basis: 30%;
+            flex-basis: 28%;
+            margin-left: 0;
+            margin-right: 0;
+            &:nth-child(3n+2) {
+                margin-left:73px;
+                margin-right:73px;
+            }
         }
     }
 
@@ -84,5 +100,23 @@
 
     .carousel {
         background-color: #ccc;
+    }
+
+    .thumbnail {
+        position: relative;
+        width: 100%;
+        height: 165px;
+        overflow: hidden;
+    }
+
+    .thumbnail-img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: auto;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
     }
 </style>

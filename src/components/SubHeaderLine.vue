@@ -42,6 +42,7 @@
     methods: {
       submitSearch() {
         this.$store.dispatch(types.GET_SEARCH_RESULTS, this.search)
+        this.search = ''
         this.$router.push({ name: 'search' })
       }
     }

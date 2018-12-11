@@ -1,13 +1,15 @@
 import * as types from '../../actions.types'
 
 export default {
-  [types.ADD_PRODUCT_BASKET]: (state, { name, id, price }) => {
+  [types.ADD_PRODUCT_BASKET]: (state, { name, id, price,shortDescription,src }) => {
     const products = Object.assign({}, state.products)
     if (typeof products[id] === 'undefined') {
       products[id] = {
         name,
         id,
+        shortDescription,
         price,
+        src,
         count: 1
       }
     } else {

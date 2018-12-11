@@ -14,34 +14,22 @@
                              label-position='top'>
                         <el-form-item
                                 prop="name"
-                                label="Ім'я"
+                                label="П.І.Б"
                                 :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' }]">
-                            <el-input v-model.number="contacts.name"/>
-                        </el-form-item>
-                        <el-form-item
-                                prop="secondName"
-                                label="По-батькові"
-                                :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' }]">
-                            <el-input v-model.number="contacts.secondName"/>
-                        </el-form-item>
-                        <el-form-item
-                                prop="surname"
-                                label="Прізвище"
-                                :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' }]">
-                            <el-input v-model.number="contacts.surname"/>
+                            <el-input v-model="contacts.name"/>
                         </el-form-item>
                         <el-form-item
                                 prop="email"
                                 label="Email"
                                 :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' },
                                 { type:'email',message:'Заповніть коректно поле', trigger: 'change' }]">
-                            <el-input v-model.number="contacts.email"/>
+                            <el-input v-model="contacts.email"/>
                         </el-form-item>
                         <el-form-item
                                 prop="phone"
                                 label="Телефон"
                                 :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' }]">
-                            <el-input v-model.number="contacts.phone"/>
+                            <el-input v-model="contacts.phone"/>
                         </el-form-item>
                         <el-form-item
                                 prop="deliveryType"
@@ -83,12 +71,12 @@
                                 :rules="[{ required:true,message:'Заповніть поле', trigger: 'change' }]"
                                 prop="address"
                                 label="Адреса">
-                            <el-input v-model.number="contacts.address" placeholder="Область;Місто;Адреса"/>
+                            <el-input v-model="contacts.address" placeholder="Область;Місто;Адреса"/>
                         </el-form-item>
                         <el-form-item
                                 prop="comments"
                                 label="Коментарі">
-                            <el-input type="textarea" v-model.number="contacts.comments"/>
+                            <el-input type="textarea" v-model="contacts.comments"/>
                         </el-form-item>
                     </el-form>
                     <el-button @click="submitForm" class="ml-auto d-block" type="success">Оформити</el-button>
@@ -97,7 +85,7 @@
                     <h4>Ваше замовлення</h4>
                     <el-table
                             :data="getProductsBaskets"
-                            border
+                            stripe
                             style="width: 100%">
                         <el-table-column
                                 prop="name"
@@ -135,9 +123,7 @@
       return {
         contacts: {
           name: '',
-          secondName: '',
           phone: '',
-          surname: '',
           email: '',
           comments: '',
           address: '',
@@ -156,7 +142,11 @@
         'getProductsBaskets',
         'getAllPrice'
       ]),
-      paymentTypeOptions: function () { //0 - нова почта // 1 Укр почта // Кур'єром - 2
+      nameDelivery() {
+        const type = ['Нова почта', 'Укр почта', 'Кур\'єром']
+        return type[this.contacts.deliveryType]
+      },
+      paymentTypeOptions() { //0 - нова почта // 1 Укр почта // Кур'єром - 2
         const paymentType = {
           0: [{
             name: 'Наложний платіж',
@@ -167,11 +157,11 @@
           }],
           1: [{
             name: 'Карткою',
-            id: 1
+            id: 0
           }],
           2: [{
             name: 'Готівкою',
-            id: 2
+            id: 0
           }, {
             name: 'Карткою',
             id: 1
@@ -186,19 +176,19 @@
           if (!valid) return
           const contacts = this.contacts
           this.$api.post('/orders', {
-            clientName: `${contacts.surname} ${contacts.name} ${contacts.secondName}`,
+            clientName: contacts.name,
             clientEmail: contacts.email,
             clientTelephone: contacts.phone,
             clientAddress: contacts.address,
             comments: contacts.comments,
-            paymentType: contacts.paymentType,
-            deliveryType: contacts.deliveryType,
+            paymentType: this.paymentTypeOptions[contacts.paymentType].name,
+            deliveryType: this.nameDelivery,
             ordersItems: this.getProductsBaskets
           })
             .then(() => {
               this.$message({
-                message:'Замовлення прийто. Очікуйте дзвінка оператора.',
-                type:'success'
+                message: 'Замовлення прийто. Очікуйте дзвінка оператора.',
+                type: 'success'
               })
               this.$store.commit(types.CLEAN_PRODUCT_BASKET)
               this.$router.push('/')

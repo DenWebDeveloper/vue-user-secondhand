@@ -1,3 +1,4 @@
 export default {
-  getResultsSearch: state => state.results
+  getResultsSearch: state => state.results,
+  getSearchText: state => state.search
 }

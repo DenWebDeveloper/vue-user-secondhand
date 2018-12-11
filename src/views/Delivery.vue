@@ -29,24 +29,21 @@
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-cod"></i>
                                     </div>
                                     <h4 class="h4 text-center mb-4">Наложеним платежем</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Facilis iusto nemo quibusdam reiciendis vero, voluptate.</p>
+                                    <p class="h5 lead border-left pl-5">Плати, після того, як побачив і отримав товар.</p>
                                 </div>
                                 <div class="col-md-4 delivery-desc__item">
                                     <div class="delivery-desc__rounded-box mx-auto mb-4"><i
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-card"></i>
                                     </div>
                                     <h4 class="h4 text-center mb-4">Банківською карткою</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Consequatur earum iure nobis qui quo vero.</p>
+                                    <p class="h5 lead border-left pl-5">Розраховуйтесь банківською платіжною карткою Visa або MasterCard.</p>
                                 </div>
                                 <div class="col-md-4 delivery-desc__item">
                                     <div class="delivery-desc__rounded-box mx-auto mb-4"><i
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-cash"></i>
                                     </div>
                                     <h4 class="h4 text-center mb-4">Готівкою</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Aperiam assumenda nesciunt odio placeat saepe tempore.</p>
+                                    <p class="h5 lead border-left pl-5">Отримав товар від кур'єра, то віддай готівку</p>
                                 </div>
                             </div>
                         </div>
@@ -58,24 +55,21 @@
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-new-post"></i>
                                     </div>
                                     <h4 class="h4 text-center mb-4">У відділеннях Нова Пошта</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Blanditiis eaque ex explicabo odio similique. Voluptas?</p>
+                                    <p class="h5 lead border-left pl-5">Доставка в відділення "Нової пошти". Швидко, зручно і дешево</p>
                                 </div>
                                 <div class="col-md-4 delivery-desc__item">
                                     <div class="delivery-desc__rounded-box mx-auto mb-4"><i
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-ukr-post"></i>
                                     </div>
-                                    <h4 class="h4 text-center mb-4">У відділеннях Укр. пошта</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Adipisci odit, quae quo vel vero voluptas?</p>
+                                    <h4 class="h4 text-center mb-4">У відділеннях Укпошта</h4>
+                                    <p class="h5 lead border-left pl-5">Доставимо товар у будь-яке відділення Укрпочти</p>
                                 </div>
                                 <div class="col-md-4 delivery-desc__item">
                                     <div class="delivery-desc__rounded-box mx-auto mb-4"><i
                                             class="delivery-desc__rounded-box--icon delivery-desc__rounded-box--icon-courier"></i>
                                     </div>
                                     <h4 class="h4 text-center mb-4">Кур'єром</h4>
-                                    <p class="h5 lead border-left pl-5">Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Deserunt eos facilis, fuga obcaecati officia quibusdam.</p>
+                                    <p class="h5 lead border-left pl-5">Віддамо вам товар особисто в руки</p>
                                 </div>
                             </div>
                         </div>

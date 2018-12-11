@@ -11,7 +11,13 @@
                     <i class="el-icon-arrow-right"></i>
                 </router-link>
             </el-dropdown-item>
-            <el-dropdown-item v-for="item in subGroups" :key="item.id">
+            <el-dropdown-item v-if="!loaded">
+                Завантаження...
+            </el-dropdown-item>
+            <el-dropdown-item v-if="subGroups.length === 0 && loaded">
+                Не знайдено підгруп
+            </el-dropdown-item>
+            <el-dropdown-item v-else v-for="item in subGroups" :key="item.id">
                     <header-group-menu-item
                             :group="item"
                             :groupsTopLevel="groupsTopLevel" :key="item.id"/>

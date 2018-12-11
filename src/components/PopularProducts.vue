@@ -18,7 +18,7 @@
                         <slide v-for="(item,index) in products"
                                :data-index="index"
                                :key="item.id">
-                            <div style="padding: 10px; display: flex; justify-content: center; height: 100%;">
+                            <div @click="$router.push({name:'product',params:{id:item.id}})" class="card-wrapper">
                                 <div class="card" :key="item.id">
                                     <div class="thumbnail">
                                         <img class="thumbnail-img"
@@ -39,18 +39,14 @@
                                         <div class="d-flex">
                                             <el-tooltip class="ml-auto" effect="dark" content="Додати в корзину"
                                                         placement="left-start">
-                                                <el-button @click.capture="addProduct(item)" type="warning"
+                                                <el-button @click.stop="addProduct(item)" type="warning"
                                                            icon="el-icon-sold-out" circle></el-button>
                                             </el-tooltip>
-                                            <router-link
-                                                    :to="{name:'product',params:{id:item.id}}"
-                                            >
-                                                <el-tooltip class="ml-1" effect="dark"
-                                                            content="Переглянути товар детальніше" placement="top">
-                                                    <el-button style="transform: rotate(180deg)" type="primary"
-                                                               icon="el-icon-back" circle></el-button>
-                                                </el-tooltip>
-                                            </router-link>
+                                            <el-tooltip class="ml-1" effect="dark"
+                                                        content="Переглянути товар детальніше" placement="top">
+                                                <el-button style="transform: rotate(180deg)" type="primary"
+                                                           icon="el-icon-back" circle></el-button>
+                                            </el-tooltip>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +83,9 @@
         this.$store.commit(types.ADD_PRODUCT_BASKET, {
           name: product.name,
           id: product.id,
-          price: product.price
+          price: product.price,
+          shortDescription: product.shortDescription,
+          src: `http://acgproduct-001-site1.gtempurl.com/api/products/${product.id}/images/${product.imageId}/content`
         })
         this.$notify({
           title: 'Корзина',
@@ -104,6 +102,17 @@
     @media(max-width: 480px) {
         .popular__title {
             font-size: 27px;
+        }
+    }
+
+    .card-wrapper {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+
+        &:hover {
+            cursor: pointer;
         }
     }
 
@@ -158,9 +167,9 @@
         top: 50%;
         width: 100%;
         height: auto;
-        -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 
 

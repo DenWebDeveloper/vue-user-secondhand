@@ -28,14 +28,15 @@
             </div>
             <div class="col-md-7">
                 <h3>{{product.name}}</h3>
+                <div class="font-weight-bold mb-2">Код продукту: {{product.productCode}}</div>
                 <product-block-info name="Короткий опис" :value="product.shortDescription"/>
                 <product-block-info name="Повний опис" :value="product.description"/>
                 <product-block-info name="Характеристики" :not-padding="true">
                     <el-row :gutter="10" type="flex" justify="space-between" style="flex-wrap: wrap">
                         <el-col v-for="(item, index) in product.productValues" :key="index" :span="11"
                                 class="product__tag">
-                            <div>{{item.key}}1</div>
-                            <div>{{item.value}}2</div>
+                            <div>{{item.key}}</div>
+                            <div>{{item.value}}</div>
                         </el-col>
                     </el-row>
                 </product-block-info>
@@ -191,7 +192,7 @@
     }
 
     .slide-active {
-        box-shadow: 0 0 20px 1px rgb(0, 0, 0);
+        box-shadow: 0 0 15px 1px #000000a6;
     }
 
     .carousel__img {

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12  section__title">
-                    <h2 class="m-2">Знайдені продукти</h2>
+                    <h3 class="m-2">Знайдені продукти по вашому запиту: <span style="text-decoration: underline">{{getSearchText}}</span></h3>
                 </div>
                 <div v-if="getResultsSearch.length !== 0" class="col-md-12">
                     <card-deck type="products" :data="getResultsSearch"/>
@@ -27,7 +27,8 @@
     },
     computed: {
       ...mapGetters([
-        'getResultsSearch'
+        'getResultsSearch',
+        'getSearchText'
       ])
     },
   }

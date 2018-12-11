@@ -14,9 +14,19 @@
                                 border
                                 style="width: 100%">
                             <el-table-column
-                                    prop="name"
+                                    label="Фото"
+                                    width="100">
+                                <template slot-scope="scope">
+                                    <img :src="scope.row.src" width="100%" alt="Photo product">
+                                </template>
+                            </el-table-column>
+                            <el-table-column
                                     label="Назва"
                                     width="180">
+                                <template slot-scope="scope">
+                                    <h6>{{ scope.row.name}}</h6>
+                                    <p style="font-size: 11px;">{{ scope.row.shortDescription}}</p>
+                                </template>
                             </el-table-column>
                             <el-table-column
                                     prop="count"
@@ -33,7 +43,7 @@
                                 </template>
                             </el-table-column>
                             <el-table-column
-                                    label="Operations">
+                                    label="Дії">
                                 <template slot-scope="scope">
                                     <el-button
                                             size="mini"

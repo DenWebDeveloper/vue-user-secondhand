@@ -17,7 +17,7 @@
                            href="mailto:retex62@ukr.net">retex62@ukr.net</a>
                     </small>
                 </div>
-                <div class="col-12 col-sm-9  col-lg-5">
+                <div class="col-12 col-sm-9  col-lg-6">
                     <nav class="navbar-expand-lg d-flex flex-row
                         justify-content-between align-items-center flex-wrap">
                         <div class="navbar-collapse w-lg-100 p-0" style="display: block"
