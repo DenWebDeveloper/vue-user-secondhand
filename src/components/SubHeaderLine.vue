@@ -2,7 +2,7 @@
     <section class="submenu p-3 shadow">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-md-8 mb-3 mb-md-0">
+                <div class="col-10 col-md-8 mb-3 mb-md-0">
                     <form>
                         <div class="form-row">
                             <input v-model="search" class="col-10 col-md-11 form-control" type="text"

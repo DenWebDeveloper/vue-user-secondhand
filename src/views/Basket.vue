@@ -7,6 +7,9 @@
                         <span>Корзина</span>
                     </h2>
                 </div>
+                <div v-if="getProductsBaskets.length !== 0" class="col-md-12">
+                    <basket-cards :data="getProductsBaskets"/>
+                </div>
                 <div class="col-md-12">
                     <div v-if="getProductsBaskets.length !== 0">
                         <el-table
@@ -29,6 +32,7 @@
                                 </template>
                             </el-table-column>
                             <el-table-column
+                                    width="100px"
                                     prop="count"
                                     label="Кількість">
                             </el-table-column>
@@ -43,6 +47,7 @@
                                 </template>
                             </el-table-column>
                             <el-table-column
+                                    width="150"
                                     label="Дії">
                                 <template slot-scope="scope">
                                     <el-button
@@ -89,6 +94,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import BasketCards from '../components/BasketCards'
   import * as types from '../store/actions.types'
 
   const checkCount = (rule, value, callback) => {
@@ -110,6 +116,9 @@
 
   export default {
     name: 'Basket',
+    components: {
+      BasketCards
+    },
     data() {
       return {
         checkCount,

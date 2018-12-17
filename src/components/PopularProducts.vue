@@ -91,7 +91,11 @@
           title: 'Корзина',
           message: 'Товар добавлений в корзину',
           duration: 2000,
-          type: 'success'
+          type: 'success',
+          onClick: () => {
+            this.$router.push({ name: 'basket' })
+            this.$notify.closeAll()
+          }
         })
       },
     }

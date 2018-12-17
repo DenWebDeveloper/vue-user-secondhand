@@ -1,6 +1,20 @@
 <template>
     <div>
         <section>
+                <div class="container d-block d-sm-none">
+                    <div class="row py-2">
+                        <div class="col about-us__left mb-2 mb-md-0">
+                            <div class="pl-2 pr-2">
+                                <h3 class="py-3"><i class="fa fa-file-alt mr-3"></i><span>Про нас</span></h3>
+                                <p>Фірма ‘Retex’ заснована у 1994 році. Компанія займається прямим імпортом,
+                                    сортуванням та подальшим продажем вживаного(одягу) одягу та взуття.
+                                    <router-link :to="{name:'about'}">Читати далі</router-link>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             <div class="container">
                 <div class="row align-items-start">
                     <div class="catalog col-md-4 pr-md-0">
@@ -54,9 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 offset-md-1 about-us__right d-flex">
-                        <iframe frameborder="0"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d175429.7163420607!2d-118.24300182793624!3d33.7635765341403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1537011282991"
-                                allowfullscreen=""></iframe>
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0%20%D0%BE%D0%B1%D0%BB%20%D0%94%D0%BE%D0%BB%D0%B8%D0%BD%D0%B0%20%20%D0%B2%D1%83%D0%BB%20%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%B0%2019&key=AIzaSyAlSW6HZ7BMefZCtIUpCZ1BOOeZngyl4r4" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

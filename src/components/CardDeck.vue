@@ -48,6 +48,7 @@
         display: block;
         margin-bottom: 10px;
         max-width: 331px;
+        min-width: 245px;
         margin-left: 0;
         margin-right: 0;
         width: 100%;
@@ -73,7 +74,7 @@
         }
 
         .card {
-            flex-basis: 28%;
+            max-width: 28%;
             margin-left: 0;
             margin-right: 0;
             &:nth-child(3n+2) {

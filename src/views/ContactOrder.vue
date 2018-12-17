@@ -10,7 +10,7 @@
             <div v-else class="row bg-white py-3">
                 <div class="col-md-4 contact-order">
                     <h4>Контакти</h4>
-                    <el-form ref="formContacts" class="buy-order" :model="contacts" label-width="70px"
+                    <el-form ref="formContacts" :model="contacts" label-width="70px"
                              label-position='top'>
                         <el-form-item
                                 prop="name"
@@ -79,7 +79,7 @@
                             <el-input type="textarea" v-model="contacts.comments"/>
                         </el-form-item>
                     </el-form>
-                    <el-button @click="submitForm" class="ml-auto d-block" type="success">Оформити</el-button>
+                    <el-button @click="submitForm" class="ml-auto d-block mt-3" type="success">Оформити</el-button>
                 </div>
                 <div class="col-md-8">
                     <h4>Ваше замовлення</h4>
@@ -183,7 +183,7 @@
             comments: contacts.comments,
             paymentType: this.paymentTypeOptions[contacts.paymentType].name,
             deliveryType: this.nameDelivery,
-            ordersItems: this.getProductsBaskets
+            orderItems: this.getProductsBaskets
           })
             .then(() => {
               this.$message({
@@ -207,7 +207,8 @@
 
 <style lang="scss">
     .contact-order {
-        .el-form-item__label {
+        .el-form-item__label,
+        .el-form-item {
             margin-bottom: 0 !important;
             padding-bottom: 0 !important;
         }

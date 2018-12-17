@@ -2,22 +2,16 @@
     <el-dropdown :trigger="isMobileMode?'click':'hover'" :hide-on-click="false" placement="bottom-start"
                  style="width: 100%">
         <span @click="handleDropdown" @mouseover="handleDropdownHover" class="pb-3 pt-3 catalog__toggle btn dropdown-toggle">
-            {{group.name}}<i class="el-icon-arrow-down el-icon--right"></i>
+            {{group.name}}
         </span>
-        <el-dropdown-menu slot="dropdown">
+        <el-dropdown-menu slot="dropdown" :class="(subGroups.length === 0 && loaded) && 'd-none'">
             <el-dropdown-item v-if="isMobileMode">
                 <router-link :to="{name:'group',params: {id: group.id}}" class="pb-3 pt-3 catalog__toggle btn">
                     Перейти в групу
                     <i class="el-icon-arrow-right"></i>
                 </router-link>
             </el-dropdown-item>
-            <el-dropdown-item v-if="!loaded">
-                Завантаження...
-            </el-dropdown-item>
-            <el-dropdown-item v-if="subGroups.length === 0 && loaded">
-                Не знайдено підгруп
-            </el-dropdown-item>
-            <el-dropdown-item v-else v-for="item in subGroups" :key="item.id">
+            <el-dropdown-item v-for="item in subGroups" :key="item.id">
                     <header-group-menu-item
                             :group="item"
                             :groupsTopLevel="groupsTopLevel" :key="item.id"/>

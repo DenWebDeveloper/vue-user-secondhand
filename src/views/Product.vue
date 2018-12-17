@@ -7,7 +7,7 @@
         </div>
         <div class="row pt-4">
             <div class="col-md-5">
-                <div class="slider-main-img">
+                <div class="slider-main-img" @click="handleImgViewer">
                     <img :src="imgsPath[imgPathActive]" style="height: 100%;" alt="">
                 </div>
                 <carousel :perPageCustom="[[480, 2], [768, 3]]"
@@ -17,7 +17,7 @@
                            :data-index="index"
                            @slideClick="handleSlideClick"
                            :key="item.id">
-                        <div style="padding: 10px;">
+                        <div style="padding: 10px;" @click="handleImgViewer">
                             <img class="carousel__img"
                                  :class="{'slide-active':imgPathActive == index}"
                                  :src="item"
@@ -28,14 +28,14 @@
             </div>
             <div class="col-md-7">
                 <h3>{{product.name}}</h3>
-                <div class="font-weight-bold mb-2">Код продукту: {{product.productCode}}</div>
+                <div class="font-weight-bold mb-2">Код продукту: {{getFullCode(product.productCode)}}</div>
                 <product-block-info name="Короткий опис" :value="product.shortDescription"/>
                 <product-block-info name="Повний опис" :value="product.description"/>
                 <product-block-info name="Характеристики" :not-padding="true">
                     <el-row :gutter="10" type="flex" justify="space-between" style="flex-wrap: wrap">
-                        <el-col v-for="(item, index) in product.productValues" :key="index" :span="11"
-                                class="product__tag">
-                            <div>{{item.key}}</div>
+                        <el-col v-for="(item, index) in product.productValues" :key="index" :xs="24" :span="11"
+                                class="product__tag underline">
+                            <div>{{item.key}}:</div>
                             <div>{{item.value}}</div>
                         </el-col>
                     </el-row>
@@ -43,10 +43,11 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-4 mb-3">
-                        <strong>Ціна: {{product.price}}</strong>
+                        <strong>Ціна: {{product.price}} грн</strong>
                     </div>
                     <div class="col-sm-8 d-flex">
-                        <el-button @click="buyProductOneClick" class="d-block" type="success">Купити в один клік
+                        <el-button @click="buyProductOneClick" class="d-block ml-sm-auto" type="success">Купити в один
+                            клік
                         </el-button>
                         <el-button @click="buyProduct" class="d-block" type="success">Купити</el-button>
                     </div>
@@ -81,20 +82,24 @@
              <el-button type="primary" @click="submitClickModal">Відправити</el-button>
             </span>
         </el-dialog>
+        <img-viewer/>
     </div>
 </template>
 
 <script>
   import ProductBlockInfo from '../components/ProductInfoBlock'
+  import ImgViewer from '../components/ImgViewer'
   import Breadcrumb from '../components/Breadcrumb'
   import * as types from '../store/actions.types'
+  import bus from '../untils/bus'
 
 
   export default {
     name: 'Product',
     components: {
       Breadcrumb,
-      ProductBlockInfo
+      ProductBlockInfo,
+      ImgViewer
     },
     data() {
       return {
@@ -154,7 +159,11 @@
           title: 'Корзина',
           message: 'Товар добавлений в корзину',
           duration: 2000,
-          type: 'success'
+          type: 'success',
+          onClick: () => {
+            this.$router.push({ name: 'basket' })
+            this.$notify.closeAll()
+          }
         })
       },
       handleSlideClick(dataset) {
@@ -175,6 +184,17 @@
               return `http://acgproduct-001-site1.gtempurl.com/api/products/${id}/images/${item.id}/content`
             })
           })
+      },
+      handleImgViewer() {
+        bus.$emit('img-viewer', this.imgsPath)
+      },
+      getFullCode(code) {
+        const length = String(code).length
+        let  zeros = ''
+        for (let i = 0; i < 9 - length; i++) {
+          zeros += '0'
+        }
+        return zeros + String(code)
       }
     },
     beforeRouteUpdate(to, from, next) {
@@ -185,6 +205,20 @@
 </script>
 
 <style lang="scss" scoped>
+    .underline {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #8e8989;
+        }
+    }
+
     .product__tag {
         display: flex;
         justify-content: space-between;

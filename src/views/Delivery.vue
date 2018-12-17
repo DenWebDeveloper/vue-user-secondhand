@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row py-5">
                 <div class="col">
-                    <div class="delivery-desc__header px-5">
+                    <div class="delivery-desc__header px-1 px-md-5">
                         <h3 class="h1 m-0 mb-4 text-center">Доставка і Оплата</h3>
                         <p class="h4 text-center">Шановні клієнти! Наша компанія пропонує декілька варіантів отримання
                             вашого товару. Оберіть нижче найзручніший для Вас!</p>
