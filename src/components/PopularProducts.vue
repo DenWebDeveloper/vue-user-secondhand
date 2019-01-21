@@ -22,7 +22,7 @@
                                 <div class="card" :key="item.id">
                                     <div class="thumbnail">
                                         <img class="thumbnail-img"
-                                             :src="`http://acgproduct-001-site1.gtempurl.com/api/products/${item.id}/images/${item.imageId}/content`"
+                                             :src="`/api/products/${item.id}/images/${item.imageId}/content`"
                                              alt="Card image catalog">
                                     </div>
                                     <div class="card-body">
@@ -85,7 +85,7 @@
           id: product.id,
           price: product.price,
           shortDescription: product.shortDescription,
-          src: `http://acgproduct-001-site1.gtempurl.com/api/products/${product.id}/images/${product.imageId}/content`
+          src: `/api/products/${product.id}/images/${product.imageId}/content`
         })
         this.$notify({
           title: 'Корзина',

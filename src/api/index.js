@@ -2,8 +2,8 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 
-const api = axios.create({
-  baseURL: 'http://acgproduct-001-site1.gtempurl.com/api',
+const api = axios.create({//http://acgproduct2-001-site1.gtempurl.com
+  baseURL: '/api',
   timeout: 5000,
 })
 

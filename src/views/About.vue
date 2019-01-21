@@ -5,21 +5,36 @@
                 <div class="col-md-6">
                     <h3 class="mb-4"><i class="fa fa-file-alt fa-2x mr-3"></i><span class="h1">Про нас</span></h3>
                     <p class="h5 text-justify">
-                        Фірма ‘Retex’ заснована у 1994 році. Компанія займається прямим імпортом, сортуванням
-                        та подальшим продажем вживаного одягу та взуття. Сировина в основному надходить із Англії
-                        і Шотландії.
-                        Ми пропонуємо широкий вибір високоякісного одягу різних брендів для дітей і дорослих, взуття,
-                        домашнього текстилю та багато іншого.
-                        Товар представлений у дукількох сортах, що дозволяє клієнту зроботу правильний вибір при по
-                        купці. У нас можна придбати сортовану і несортовану продукцію.
-                        Товар у сортувальному цеху готується щодня, враховуючи всі критерії, тенденції моди, сезон та
-                        інші
-                        поточні вимоги. Чекаємо на Вас з нетерпінням і бажаємо всього найкращого.</p>
+                        {{text}}</p>
                 </div>
                 <div class="col-md-6 align-self-center d-none d-sm-block"><img class="img-fluid rounded-circle"
-                                                             src="../assets/img/about-desc.jpg"
-                                                             alt="Фото нашого магазину"></div>
+                                                                               src="../assets/img/about-desc.jpg"
+                                                                               alt="Фото нашого магазину"></div>
             </div>
         </div>
     </section>
 </template>
+
+<script>
+  export default {
+    name: 'About',
+    data() {
+      return {
+        text: ''
+      }
+    },
+    created() {
+      if (this.text.length === 0) {
+        this.getText()
+      }
+    },
+    methods: {
+      getText() {
+        this.$api('/portal-parameters/about-us-descriptions')
+          .then(res => {
+            this.text = res.data.value
+          })
+      }
+    }
+  }
+</script>

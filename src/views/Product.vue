@@ -153,7 +153,9 @@
         this.$store.commit(types.ADD_PRODUCT_BASKET, {
           name: product.name,
           id: product.id,
-          price: product.price
+          price: product.price,
+          shortDescription: product.shortDescription,
+          src: `/api/products/${product.id}/images/${product.imageId}/content`
         })
         this.$notify({
           title: 'Корзина',
@@ -181,7 +183,7 @@
         this.$api(`/products/${id}/images`)
           .then(res => {
             this.imgsPath = res.data.map(item => {
-              return `http://acgproduct-001-site1.gtempurl.com/api/products/${id}/images/${item.id}/content`
+              return `/api/products/${id}/images/${item.id}/content`
             })
           })
       },

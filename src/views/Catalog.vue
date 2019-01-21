@@ -5,7 +5,7 @@
                 <div class="col-md-12  section__title">
                     <h2 class="m-2">Групи</h2>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 px-0">
                     <card-deck :data="groups"/>
                 </div>
                 <div class="col-md-12" style="margin-top: 50px">

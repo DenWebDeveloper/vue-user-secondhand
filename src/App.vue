@@ -14,6 +14,8 @@ export default {
   },
   beforeMount() { // Інформація використовується в header тому завантажуємо в корні проекта
     this.$store.dispatch(types.GET_BASE_INFO)
+    this.$store.dispatch(types.GET_SOCIALS)
+    this.$store.dispatch(types.GET_ADDITIONAL_INFO)
   }
 }
 </script>

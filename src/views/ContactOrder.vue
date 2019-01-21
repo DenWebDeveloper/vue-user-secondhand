@@ -101,12 +101,13 @@
                                 label="Ціна за 1шт">
                         </el-table-column>
                         <el-table-column
-                                label="Ціна">
+                                label="Ціна(грн)">
                             <template slot-scope="scope">
                                 <el-tag>{{ scope.row.price * scope.row.count }}</el-tag>
                             </template>
                         </el-table-column>
                     </el-table>
+                    <div class="font-weight-bold text-right mt-3">Загальна ціна: {{getAllPrice}} грн.</div>
                 </div>
             </div>
         </div>
@@ -183,7 +184,10 @@
             comments: contacts.comments,
             paymentType: this.paymentTypeOptions[contacts.paymentType].name,
             deliveryType: this.nameDelivery,
-            orderItems: this.getProductsBaskets
+            orderItems: this.getProductsBaskets.map(item => ({
+              productId: item.id,
+              count: item.count
+            }))
           })
             .then(() => {
               this.$message({
@@ -209,6 +213,7 @@
     .contact-order {
         .el-form-item__label,
         .el-form-item {
+            margin-top: 6px;
             margin-bottom: 0 !important;
             padding-bottom: 0 !important;
         }

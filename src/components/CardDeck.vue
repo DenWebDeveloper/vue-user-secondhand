@@ -5,10 +5,10 @@
                      class="card" :key="item.id">
             <div class="thumbnail">
                 <img v-if="type === 'products'" class="card-img-top thumbnail-img"
-                     :src="`http://acgproduct-001-site1.gtempurl.com/api/products/${item.id}/images/${item.imageId}/content`"
+                     :src="`/api/products/${item.id}/images/${item.imageId}/content`"
                      alt="Card image catalog">
                 <img v-else class="card-img-top thumbnail-img"
-                     :src="`http://acgproduct-001-site1.gtempurl.com/api/groups/${item.id}/images/${item.imageId}/content`"
+                     :src="`/api/groups/${item.id}/images/${item.imageId}/content`"
                      alt="Card image catalog">
             </div>
             <div class="card-body">
@@ -62,8 +62,10 @@
     @media(min-width: 577px) {
         .card-deck {
             justify-content: space-between;
+            flex-direction: row;
         }
         .card {
+            max-width: 48%;
             flex-basis: 44%;
         }
     }

@@ -40,9 +40,7 @@
                 <div class="col-md-6 align-self-center"><span
                         class="h5 m-0 font-weight-bold">Знайти нас можна тут:</span>
                     <div class="contacts-desc__map mt-2 d-flex">
-                        <iframe frameborder="0"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d175429.7163420607!2d-118.24300182793624!3d33.7635765341403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1537011282991"
-                                allowfullscreen=""></iframe>
+                        <GMap style="min-height: 465px;"/>
                     </div>
                 </div>
             </div>
@@ -52,9 +50,13 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import GMap from '../components/GMap'
 
   export default {
     name: 'Contacts',
+    components: {
+      GMap
+    },
     computed: {
       ...mapGetters({
         phones: 'getPhones'
@@ -64,7 +66,7 @@
 </script>
 
 <style scoped>
-.email {
-    color: #212529;
-}
+    .email {
+        color: #212529;
+    }
 </style>
